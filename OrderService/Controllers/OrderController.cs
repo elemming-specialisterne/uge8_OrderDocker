@@ -112,7 +112,7 @@ namespace OrderService.Controllers
             {
                 if (!products.Any(p => p.Productid == productOrder.Productid))
                 {
-                    ModelState.AddModelError("", $"ProductID {productOrder.Productid} does not exist");
+                    ModelState.AddModelError("", $"Productid {productOrder.Productid} does not exist");
                     return StatusCode(422, ModelState);
                 }
                 //OrderItems.Add(_mapper.Map<OrderItem>(productOrder));
@@ -158,7 +158,7 @@ namespace OrderService.Controllers
             
             try 
             {
-                HttpResponseMessage response = await client.GetAsync("https://localhost:7125/api/Products");
+                HttpResponseMessage response = await client.GetAsync("http://productservice:7125/api/Products");
                 if (response.IsSuccessStatusCode)
                 {
                     var result = await response.Content.ReadFromJsonAsync<ICollection<Product>>();

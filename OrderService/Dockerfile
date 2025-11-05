@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
-WORKDIR /OrderService
+WORKDIR /app
 EXPOSE 5028
 
 ENV ASPNETCORE_URLS=http://+:5028
