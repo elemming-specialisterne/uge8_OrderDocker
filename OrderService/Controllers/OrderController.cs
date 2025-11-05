@@ -20,7 +20,7 @@ namespace OrderService.Controllers
         private static readonly HttpClient _defaultClient = new();
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Order>))]
         public IActionResult GetOrders()
         {
@@ -33,7 +33,7 @@ namespace OrderService.Controllers
         }
 
         [HttpGet("user/{userID}")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<Order>))]
         [ProducesResponseType(422)]
         public IActionResult GetOrders(int userID)
@@ -53,7 +53,7 @@ namespace OrderService.Controllers
         }
 
         [HttpGet("{orderID}")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         [ProducesResponseType(200, Type = typeof(OrderDto))]
         public IActionResult GetOrder(int orderID)
         {
@@ -66,7 +66,7 @@ namespace OrderService.Controllers
         }
 
         [HttpGet("between")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(200, Type = typeof(IEnumerable<OrderDto>))]
         public IActionResult GetOrdersBetween([FromQuery] DateTime startDate, [FromQuery] DateTime endDate)
         {
@@ -79,7 +79,7 @@ namespace OrderService.Controllers
         }
 
         [HttpPost("[action]")]
-        [Authorize(Roles = "Admin, User")]
+        //[Authorize(Roles = "Admin, User")]
         [ProducesResponseType(204)]
         [ProducesResponseType(422)]
         [ProducesResponseType(500)]
